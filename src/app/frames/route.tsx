@@ -1,16 +1,16 @@
 /* eslint-disable react/jsx-key */
-import { createFrames, Button } from "frames.js/next";
+import { createFrames, Button } from 'frames.js/next'
 
-const totalPages = 5;
+const totalPages = 5
 
 const frames = createFrames({
-  basePath: "frames",
-});
+  basePath: 'frames',
+})
 
 const handleRequest = frames(async (ctx) => {
-  const pageIndex = Number(ctx.searchParams.pageIndex || 0);
+  const pageIndex = Number(ctx.searchParams.pageIndex || 0)
 
-  const imageUrl = `https://picsum.photos/seed/frames.js-${pageIndex}/300/200`;
+  const imageUrl = `https://picsum.photos/seed/frames.js-${pageIndex}/300/200`
 
   return {
     image: (
@@ -28,7 +28,7 @@ const handleRequest = frames(async (ctx) => {
           query: { pageIndex: (pageIndex - 1) % totalPages },
         }}
       >
-        ←
+        ←123
       </Button>,
       <Button
         action="post"
@@ -39,9 +39,9 @@ const handleRequest = frames(async (ctx) => {
         →
       </Button>,
     ],
-    textInput: "Type something!",
-  };
-});
+    textInput: 'Type something!',
+  }
+})
 
-export const GET = handleRequest;
-export const POST = handleRequest;
+export const GET = handleRequest
+export const POST = handleRequest

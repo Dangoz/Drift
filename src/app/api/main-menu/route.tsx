@@ -12,7 +12,13 @@ const handleRequest = frames(async (ctx) => {
     },
     buttons: [
       <Button action="post" target="/api/read-bottle">
-        Read a Bottle
+        Send Bottle 🌊
+      </Button>,
+      <Button action="post" target="/api/read-bottle">
+        Find Bottle 🎣
+      </Button>,
+      <Button action="post" target="/api/read-bottle">
+        My Collection 💌
       </Button>,
     ],
     textInput: 'Type something!',

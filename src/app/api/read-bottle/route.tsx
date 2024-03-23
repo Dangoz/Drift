@@ -5,10 +5,12 @@ import { createFrames, Button } from 'frames.js/next'
 const frames = createFrames()
 
 const handleRequest = frames(async (ctx) => {
+  console.log('message', ctx.message || 'no message')
+
   return {
     image: (
       <div tw="flex flex-col">
-        <div tw="flex">Reading the bottle...jwajoidjoawjdowjo.hahaha</div>
+        <div tw="flex">Reading the bottle 0-0</div>
       </div>
     ),
     imageOptions: {

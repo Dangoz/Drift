@@ -7,8 +7,9 @@ import { getFarcasterUserByFID } from '@/common/pinata'
 const frames = createFrames()
 
 const handleRequest = frames(async (ctx) => {
-  const randomBottle = await getRandomBottle()
-  const author = await getFarcasterUserByFID(randomBottle.authorFID)
+  const { authorFID, message } = ctx.searchParams
+  console.log('authorFID', authorFID)
+  console.log('message', message)
 
   return {
     image: (
@@ -23,7 +24,7 @@ const handleRequest = frames(async (ctx) => {
           <div tw="w-8 h-8 rounded-full mr-2 bg-gray-300" />
           {/* <div tw="text-lg font-bold text-purple-500">{author.display_name}</div> */}
           <div tw="w-16 h-4 bg-gray-300 mt-1" />
-          <div tw="text-black text-sm break-words">{randomBottle.message}</div>
+          <div tw="text-black text-sm break-words">{message}</div>
         </div>
       </div>
     ),
@@ -37,23 +38,16 @@ const handleRequest = frames(async (ctx) => {
         action="post"
         target={{
           query: {
-            authorFID: randomBottle.authorFID,
-            message: randomBottle.message,
+            authorFID: authorFID,
+            message: message,
           },
-          pathname: '/api/find-bottle/reply',
+          pathname: '/api/find-bottle/replied',
         }}
       >
         Reply 📝
       </Button>,
-      <Button
-        action="post"
-        target={{
-          pathname: '/api/main-menu',
-        }}
-      >
-        Throw Away 🌊
-      </Button>,
     ],
+    textInput: 'Write a reply to the bottle',
   }
 })
 

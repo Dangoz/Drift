@@ -1,9 +1,13 @@
 /* eslint-disable react/jsx-key */
 import { createFrames, Button } from 'frames.js/next'
+import { getRandomBottle } from '@/model/bottle'
 
 const frames = createFrames()
 
 const handleRequest = frames(async (ctx) => {
+  const randomBottle = await getRandomBottle()
+  console.log('randomBottle', randomBottle)
+
   console.log('message', ctx.message || 'no message')
 
   return {

@@ -7,7 +7,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: 'Drifting Bottle',
     description: 'A game where you can send and receive messages in a drifting bottle.',
     other: {
-      ...(await fetchMetadata(new URL('api/main-menu', _URL))),
+      ...(await fetchMetadata(new URL('api/landing', _URL))),
     },
   }
 }

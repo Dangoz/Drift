@@ -11,17 +11,12 @@ const handleRequest = frames(async (ctx) => {
       aspectRatio: '1:1',
     },
     buttons: [
-      <Button action="post" target="/api/send-bottle">
-        Send Bottle 🌊
-      </Button>,
-      <Button action="post" target="/api/find-bottle">
-        Find Bottle 🎣
-      </Button>,
-      <Button action="post" target="/api/my-collection">
-        My Collection 💌
+      <Button action="post" target="/api/main-menu">
+        START🌊🍾📜
       </Button>,
     ],
   }
 })
 
+export const GET = handleRequest
 export const POST = handleRequest

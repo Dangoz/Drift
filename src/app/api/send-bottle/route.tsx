@@ -4,7 +4,7 @@ import { EMPTY_SCROLL_BACKGROUND } from '@/common/constants'
 import { createFrames, Button } from 'frames.js/next'
 import { ImageResponse } from 'next/og'
 import { imageResponseToBase64 } from '@/common/imageProcess'
-import Image from 'next/image'
+import { getFarcasterUserByFID } from '@/common/pinata'
 
 export const runtime = 'edge'
 
@@ -12,13 +12,17 @@ const frames = createFrames()
 
 const handleRequest = frames(async (ctx) => {
   const isMessageSent: boolean = ctx.searchParams.messageSent === 'true'
-  const inputMessage: string = ctx.message?.inputText || ''
+  console.log('message', ctx.message || 'no message')
+
+  const data = await ctx.request.json()
+  const { untrustedData, trustedData } = data
+  console.log('untrustedData', untrustedData)
+  console.log('trustedData', trustedData)
+
+  const inputMessage = untrustedData.inputText || ''
 
   // If the message has been sent with an non-emoty message
   if (isMessageSent && inputMessage.trim().length > 0) {
-    // make a request to /api/og and receive a ImageResponse
-    // const imageResponse = await fetch('http://localhost:8000/api/og')
-
     // const imageResponse = new ImageResponse(
     //   (
     //     <div tw='flex flex-col w-full h-full'>
@@ -40,17 +44,25 @@ const handleRequest = frames(async (ctx) => {
     // )
     // const previewImageUrl = await imageResponseToBase64(imageResponse)
 
+    console.log('fid', untrustedData.fid, typeof untrustedData.fid)
+    const farcasterUser = await getFarcasterUserByFID(untrustedData.fid)
+    console.log('farcasterUser', farcasterUser)
+
     return {
       // image: previewImageUrl,
       image: (
-        <div tw="flex flex-col w-full h-full">
+        <div tw="flex flex-col w-full h-full items-center justify-center">
           <img
             src={EMPTY_SCROLL_BACKGROUND}
             alt="Empty Scroll Background"
             tw="w-full h-full object-cover z-0 absolute"
           />
 
-          <div tw="p-2 text-white z-10">123123ko1j2io1jieo</div>
+          <div tw="flex flex-col w-48 h-48 items-center justify-center text-white z-10">
+            <img src={farcasterUser.pfp_url} alt="Empty Scroll Background" tw="w-8 h-8 rounded-full mr-2" />
+            <div tw="text-lg font-bold text-purple-500">{farcasterUser.display_name}</div>
+            <div tw="text-black text-sm break-words">{inputMessage}</div>
+          </div>
         </div>
       ),
       imageOptions: {

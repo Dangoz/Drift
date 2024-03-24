@@ -7,9 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky"
+    "prepare": "husky",
+    "prismaMigrate": "prisma migrate dev",
+    "prismaDeploy": "prisma db push --preview-feature"
   },
   "dependencies": {
+    "@prisma/client": "5.11.0",
     "frames.js": "^0.9.3",
     "next": "^14.1.0",
     "react": "^18.2.0",

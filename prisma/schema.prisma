@@ -13,3 +13,14 @@ datasource db {
   url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
+
+model Bottle {
+  id         String    @id @default(cuid())
+  authorFID  Int
+  replierFID Int?
+  message    String
+  reply      String?
+  createdAt  DateTime  @default(now())
+  repliedAt  DateTime?
+  isActive   Boolean   @default(true)
+}

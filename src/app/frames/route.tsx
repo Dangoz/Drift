@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-key */
+/* eslint-disable react/jsx-key, @next/next/no-img-element */
 import { createFrames, Button } from 'frames.js/next'
 
 const totalPages = 5

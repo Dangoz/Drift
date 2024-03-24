@@ -7,7 +7,7 @@ import { getFarcasterUserByFID } from '@/common/pinata'
 const frames = createFrames()
 
 const handleRequest = frames(async (ctx) => {
-  const { authorFID, message } = ctx.searchParams
+  const { authorFID, message, bottleId } = ctx.searchParams
   console.log('authorFID', authorFID)
   console.log('message', message)
 
@@ -19,10 +19,7 @@ const handleRequest = frames(async (ctx) => {
 
         {/* author */}
         <div tw="flex flex-col w-full h-40 items-start justify-center text-white z-10 absolute top-0 left-1">
-          {/* <img src={author.pfp_url} alt="Empty Scroll Background" tw="w-8 h-8 rounded-full mr-2" /> */}
-          {/* instead of showing the avatar, show a grey placeholder of the same style */}
           <div tw="w-8 h-8 rounded-full mr-2 bg-gray-300" />
-          {/* <div tw="text-lg font-bold text-purple-500">{author.display_name}</div> */}
           <div tw="w-16 h-4 bg-gray-300 mt-1" />
           <div tw="text-black text-sm break-words">{message}</div>
         </div>
@@ -40,6 +37,7 @@ const handleRequest = frames(async (ctx) => {
           query: {
             authorFID: authorFID,
             message: message,
+            bottleId: bottleId,
           },
           pathname: '/api/find-bottle/replied',
         }}

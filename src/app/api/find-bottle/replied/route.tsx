@@ -1,13 +1,13 @@
 /* eslint-disable react/jsx-key, @next/next/no-img-element */
 import { createFrames, Button } from 'frames.js/next'
-import { getRandomBottle } from '@/model/bottle'
+import { replyToBottle } from '@/model/bottle'
 import { BROKEN_BOTTLE_BACKGROUND } from '@/common/constants'
 import { getFarcasterUserByFID } from '@/common/pinata'
 
 const frames = createFrames()
 
 const handleRequest = frames(async (ctx) => {
-  const { authorFID, message } = ctx.searchParams
+  const { authorFID, message, bottleId } = ctx.searchParams
   console.log('authorFID', authorFID)
   console.log('message', message)
 
@@ -23,6 +23,10 @@ const handleRequest = frames(async (ctx) => {
   console.log('author', author)
   console.log('replier', replier)
 
+  // reply to the bottle
+  const bottle = await replyToBottle(bottleId, replierFID, reply, repliedAt)
+  console.log('replied bottle', bottle)
+
   return {
     image: (
       <div tw="flex w-full h-full flex-col justify-center items-center">
@@ -37,7 +41,6 @@ const handleRequest = frames(async (ctx) => {
         <div tw="flex flex-col w-full h-40 items-start justify-center text-white z-10 absolute top-0 left-5">
           <img src={author.pfp_url} alt="Empty Scroll Background" tw="w-8 h-8 rounded-full mr-2" />
           <div tw="text-lg font-bold text-purple-800">{author.display_name}</div>
-          {/* <div tw="w-16 h-4 bg-gray-300 mt-1" /> */}
           <div tw="text-black text-sm break-words">{message}</div>
         </div>
 

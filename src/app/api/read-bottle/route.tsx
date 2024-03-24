@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-key */
-import { MAIN_MENU_BACKGROUND } from '@/common/constants'
 import { createFrames, Button } from 'frames.js/next'
 
 const frames = createFrames()

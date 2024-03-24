@@ -1,28 +1,22 @@
 /* eslint-disable react/jsx-key */
-import { MAIN_MENU_BACKGROUND } from '@/common/constants'
+import { EMPTY_SCROLL_BACKGROUND } from '@/common/constants'
 import { createFrames, Button } from 'frames.js/next'
 
 const frames = createFrames()
 
 const handleRequest = frames(async (ctx) => {
   return {
-    image: MAIN_MENU_BACKGROUND,
+    image: EMPTY_SCROLL_BACKGROUND,
     imageOptions: {
       aspectRatio: '1:1',
     },
     buttons: [
       <Button action="post" target="/api/send-bottle">
-        Send Bottle 🌊
-      </Button>,
-      <Button action="post" target="/api/find-bottle">
-        Find Bottle 🎣
-      </Button>,
-      <Button action="post" target="/api/my-collection">
-        My Collection 💌
+        Send Message
       </Button>,
     ],
+    textInput: 'Write a message',
   }
 })
 
-export const GET = handleRequest
 export const POST = handleRequest

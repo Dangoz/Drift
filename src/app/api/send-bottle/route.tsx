@@ -2,7 +2,6 @@
 // import sharp from 'sharp'
 import { EMPTY_SCROLL_BACKGROUND } from '@/common/constants'
 import { createFrames, Button } from 'frames.js/next'
-import { ImageResponse } from 'next/og'
 import { imageResponseToBase64 } from '@/common/imageProcess'
 import { getFarcasterUserByFID } from '@/common/pinata'
 

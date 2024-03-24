@@ -50,6 +50,7 @@ export const getRandomBottle = async (userId: number): Promise<Bottle | null> =>
   return bottles[0]
 }
 
+// reply to a bottle
 export const replyToBottle = async (
   id: string,
   replierFID: number,
@@ -68,4 +69,20 @@ export const replyToBottle = async (
     },
   })
   return bottle
+}
+
+export const getSealedBottles = async (userId: number): Promise<Bottle[]> => {
+  const bottles = await prisma.bottle.findMany({
+    where: {
+      AND: [
+        {
+          isActive: false,
+        },
+        {
+          OR: [{ authorFID: userId }, { replierFID: userId }],
+        },
+      ],
+    },
+  })
+  return bottles
 }

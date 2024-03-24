@@ -17,8 +17,8 @@ const handleRequest = frames(async (ctx) => {
       <Button action="post" target="/api/find-bottle">
         Find Bottle 🎣
       </Button>,
-      <Button action="post" target="/api/my-collection">
-        My Collection 💌
+      <Button action="post" target="/api/sealed-messages">
+        Sealed Messages 💌
       </Button>,
     ],
   }

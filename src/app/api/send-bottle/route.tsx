@@ -18,69 +18,69 @@ const handleRequest = frames(async (ctx) => {
 
   const inputMessage = untrustedData.inputText || ''
 
-  // // If the message has been sent with an non-emoty message
-  // if (isMessageSent && inputMessage.trim().length > 0) {
-  //   // const imageResponse = new ImageResponse(
-  //   //   (
-  //   //     <div tw='flex flex-col w-full h-full'>
-  //   //       <img
-  //   //         src={EMPTY_SCROLL_BACKGROUND}
-  //   //         alt="Empty Scroll Background"
-  //   //         tw='w-full h-full object-cover z-0 absolute'
-  //   //       />
+  // If the message has been sent with an non-emoty message
+  if (isMessageSent && inputMessage.trim().length > 0) {
+    // const imageResponse = new ImageResponse(
+    //   (
+    //     <div tw='flex flex-col w-full h-full'>
+    //       <img
+    //         src={EMPTY_SCROLL_BACKGROUND}
+    //         alt="Empty Scroll Background"
+    //         tw='w-full h-full object-cover z-0 absolute'
+    //       />
 
-  //   //       <div tw="p-2 text-white z-10">
-  //   //         123123ko1j2io1jieo
-  //   //       </div>
-  //   //     </div>
-  //   //   ),
-  //   //   {
-  //   //     width: 350,
-  //   //     height: 350,
-  //   //   }
-  //   // )
-  //   // const previewImageUrl = await imageResponseToBase64(imageResponse)
+    //       <div tw="p-2 text-white z-10">
+    //         123123ko1j2io1jieo
+    //       </div>
+    //     </div>
+    //   ),
+    //   {
+    //     width: 350,
+    //     height: 350,
+    //   }
+    // )
+    // const previewImageUrl = await imageResponseToBase64(imageResponse)
 
-  //   console.log('fid', untrustedData.fid, typeof untrustedData.fid)
-  //   const farcasterUser = await getFarcasterUserByFID(untrustedData.fid)
-  //   console.log('farcasterUser', farcasterUser)
+    console.log('fid', untrustedData.fid, typeof untrustedData.fid)
+    const farcasterUser = await getFarcasterUserByFID(untrustedData.fid)
+    console.log('farcasterUser', farcasterUser)
 
-  //   return {
-  //     // image: previewImageUrl,
-  //     image: (
-  //       <div tw="flex flex-col w-full h-full items-center justify-center">
-  //         <img
-  //           src={EMPTY_SCROLL_BACKGROUND}
-  //           alt="Empty Scroll Background"
-  //           tw="w-full h-full object-cover z-0 absolute"
-  //         />
+    return {
+      // image: previewImageUrl,
+      image: (
+        <div tw="flex flex-col w-full h-full items-center justify-center">
+          <img
+            src={EMPTY_SCROLL_BACKGROUND}
+            alt="Empty Scroll Background"
+            tw="w-full h-full object-cover z-0 absolute"
+          />
 
-  //         <div tw="flex flex-col w-48 h-48 items-center justify-center text-white z-10">
-  //           <img src={farcasterUser.pfp_url} alt="Empty Scroll Background" tw="w-8 h-8 rounded-full mr-2" />
-  //           <div tw="text-lg font-bold text-purple-500">{farcasterUser.display_name}</div>
-  //           <div tw="text-black text-sm break-words">{inputMessage}</div>
-  //         </div>
-  //       </div>
-  //     ),
-  //     imageOptions: {
-  //       aspectRatio: '1:1',
-  //       width: 300,
-  //       height: 300,
-  //     },
-  //     buttons: [
-  //       <Button
-  //         action="post"
-  //         target={{
-  //           query: {
-  //             messageSent: false,
-  //           },
-  //         }}
-  //       >
-  //         Seal & Send 🌊
-  //       </Button>,
-  //     ],
-  //   }
-  // }
+          <div tw="flex flex-col w-48 h-48 items-center justify-center text-white z-10">
+            <img src={farcasterUser.pfp_url} alt="Empty Scroll Background" tw="w-8 h-8 rounded-full mr-2" />
+            <div tw="text-lg font-bold text-purple-500">{farcasterUser.display_name}</div>
+            <div tw="text-black text-sm break-words">{inputMessage}</div>
+          </div>
+        </div>
+      ),
+      imageOptions: {
+        aspectRatio: '1:1',
+        width: 300,
+        height: 300,
+      },
+      buttons: [
+        <Button
+          action="post"
+          target={{
+            query: {
+              messageSent: false,
+            },
+          }}
+        >
+          Seal & Send 🌊
+        </Button>,
+      ],
+    }
+  }
 
   return {
     image: EMPTY_SCROLL_BACKGROUND,

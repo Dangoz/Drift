@@ -39,6 +39,8 @@ const handleRequest = frames(async (ctx) => {
   const author = await getFarcasterUserByFID(demoBottle.authorFID)
   const replier = await getFarcasterUserByFID(demoBottle.replierFID as number)
 
+  const anotherUsername = author.fid === fid ? replier.username : author.username
+
   return {
     image: (
       <div tw="flex w-full h-full flex-col justify-center items-center">
@@ -77,6 +79,9 @@ const handleRequest = frames(async (ctx) => {
         }}
       >
         🔄
+      </Button>,
+      <Button action="link" target={`https://warpcast.com/${anotherUsername}`}>
+        🌐 View Profile
       </Button>,
       <Button
         action="post"

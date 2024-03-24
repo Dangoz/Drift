@@ -70,6 +70,9 @@ const handleRequest = frames(async (ctx) => {
       >
         🔒 Message Sealed - Back to Menu
       </Button>,
+      <Button action="link" target={`https://warpcast.com/${author.username}`}>
+        🌐 View Author Profile
+      </Button>,
     ],
   }
 })

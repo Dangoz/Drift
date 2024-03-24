@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-key, @next/next/no-img-element */
 // import sharp from 'sharp'
-import { EMPTY_SCROLL_BACKGROUND } from '@/common/constants'
+import { EMPTY_SCROLL_BACKGROUND, OPEN_FRAME } from '@/common/constants'
 import { createFrames, Button } from 'frames.js/next'
 // import { imageResponseToBase64 } from '@/common/imageProcess'
 import { getFarcasterUserByFID } from '@/common/pinata'
@@ -80,6 +80,7 @@ const handleRequest = frames(async (ctx) => {
           Seal & Send 🌊
         </Button>,
       ],
+      ...OPEN_FRAME,
     }
   }
 
@@ -102,6 +103,7 @@ const handleRequest = frames(async (ctx) => {
       </Button>,
     ],
     textInput: 'Write a message',
+    ...OPEN_FRAME,
   }
 })
 

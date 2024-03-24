@@ -1,3 +1,16 @@
+export const OPEN_FRAME = {
+  accepts: [
+    {
+      id: 'farcaster',
+      version: 'vNext',
+    },
+    {
+      id: 'xmtp',
+      version: 'vNext',
+    },
+  ],
+}
+
 export const URL = process.env.NODE_ENV === 'production' ? process.env.PROD_URL : process.env.LOCALHOST
 
 export const PINATA_GATEWAY = `https://aqua-blank-cuckoo-456.mypinata.cloud/ipfs`

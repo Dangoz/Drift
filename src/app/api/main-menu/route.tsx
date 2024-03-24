@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-import { MAIN_MENU_BACKGROUND } from '@/common/constants'
+import { MAIN_MENU_BACKGROUND, OPEN_FRAME } from '@/common/constants'
 import { createFrames, Button } from 'frames.js/next'
 
 const frames = createFrames()
@@ -21,6 +21,7 @@ const handleRequest = frames(async (ctx) => {
         Sealed Messages 💌
       </Button>,
     ],
+    OPEN_FRAME,
   }
 })
 

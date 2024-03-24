@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 import { createFrames, Button } from 'frames.js/next'
 import { createBottle } from '@/model/bottle'
-import { SENT_BOTTLE_BACKGROUND } from '@/common/constants'
+import { SENT_BOTTLE_BACKGROUND, OPEN_FRAME } from '@/common/constants'
 
 const frames = createFrames()
 
@@ -32,6 +32,7 @@ const handleRequest = frames(async (ctx) => {
         🌊 Bottle Sent - Back to Menu
       </Button>,
     ],
+    ...OPEN_FRAME,
   }
 })
 

@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key, @next/next/no-img-element */
 import { createFrames, Button } from 'frames.js/next'
 import { replyToBottle } from '@/model/bottle'
-import { BROKEN_BOTTLE_BACKGROUND } from '@/common/constants'
+import { BROKEN_BOTTLE_BACKGROUND, OPEN_FRAME } from '@/common/constants'
 import { getFarcasterUserByFID } from '@/common/pinata'
 
 const frames = createFrames()
@@ -74,6 +74,7 @@ const handleRequest = frames(async (ctx) => {
         🌐 View Author Profile
       </Button>,
     ],
+    ...OPEN_FRAME,
   }
 })
 

@@ -72,8 +72,9 @@ const handleRequest = frames(async (ctx) => {
           action="post"
           target={{
             query: {
-              messageSent: false,
+              inputMessage: inputMessage,
             },
+            pathname: '/api/send-bottle/send',
           }}
         >
           Seal & Send 🌊

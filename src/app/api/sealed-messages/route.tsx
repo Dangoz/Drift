@@ -40,7 +40,7 @@ const handleRequest = frames(async (ctx) => {
   const author = await getFarcasterUserByFID(demoBottle.authorFID)
   const replier = await getFarcasterUserByFID(demoBottle.replierFID as number)
 
-  const anotherUsername = author.fid === fid ? replier.username : author.username
+  const anotherUsername = +author.fid === fid ? replier.username : author.username
 
   return {
     image: (

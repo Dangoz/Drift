@@ -12,7 +12,7 @@ query MyQuery($identity: Identity = "fc_fid:12314") {
       userAddress
       profileBio
       profileImage
-      profileName
+      fnames
       profileDisplayName
       followerCount
       followingCount
@@ -40,7 +40,7 @@ export const getFarcasterUserByFID = async (FID: number): Promise<FarcasterUser>
     following_count: result.followingCount,
     pfp_url: result.profileImage,
     recovery_address: result.userRecoveryAddress,
-    username: result.profileName,
+    username: result.fnames[0],
   }
   console.log('farcasterUser', farcasterUser)
   return farcasterUser

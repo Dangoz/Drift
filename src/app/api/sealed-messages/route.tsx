@@ -2,7 +2,7 @@
 import { createFrames, Button } from 'frames.js/next'
 import { getSealedBottles } from '@/model/bottle'
 import { SEA_BACKGROUND_2, BROKEN_BOTTLE_BACKGROUND, OPEN_FRAME } from '@/common/constants'
-import { getFarcasterUserByFID } from '@/common/pinata'
+import { getFarcasterUserByFID } from '@/common/airstack'
 
 const frames = createFrames()
 

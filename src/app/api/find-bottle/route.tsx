@@ -2,7 +2,6 @@
 import { createFrames, Button } from 'frames.js/next'
 import { getRandomBottle } from '@/model/bottle'
 import { SEA_BACKGROUND_2, BROKEN_BOTTLE_BACKGROUND, OPEN_FRAME } from '@/common/constants'
-import { getFarcasterUserByFID } from '@/common/pinata'
 
 const frames = createFrames()
 
@@ -14,7 +13,6 @@ const handleRequest = frames(async (ctx) => {
   const randomBottle = (await getRandomBottle(fid)) || { authorFID: '0', message: 'No bottles found', id: '0' }
   console.log('randomBottle', randomBottle)
   console.log('ids', randomBottle.authorFID, fid)
-  // const author = await getFarcasterUserByFID(randomBottle.authorFID)
 
   // if no bottles found
   if (randomBottle.authorFID === '0') {

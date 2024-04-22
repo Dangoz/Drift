@@ -8,5 +8,4 @@ export type FarcasterUser = {
   pfp_url: string
   recovery_address: string
   username: string
-  verifications: string[]
 }

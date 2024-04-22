@@ -2,7 +2,6 @@
 import { createFrames, Button } from 'frames.js/next'
 import { getRandomBottle } from '@/model/bottle'
 import { SEA_BACKGROUND, OPEN_FRAME } from '@/common/constants'
-import { getFarcasterUserByFID } from '@/common/pinata'
 
 const frames = createFrames()
 

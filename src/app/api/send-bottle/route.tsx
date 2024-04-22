@@ -3,7 +3,7 @@
 import { EMPTY_SCROLL_BACKGROUND, OPEN_FRAME } from '@/common/constants'
 import { createFrames, Button } from 'frames.js/next'
 // import { imageResponseToBase64 } from '@/common/imageProcess'
-import { getFarcasterUserByFID } from '@/common/pinata'
+import { getFarcasterUserByFID } from '@/common/airstack'
 
 const frames = createFrames()
 
